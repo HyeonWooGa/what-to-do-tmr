@@ -1,17 +1,19 @@
 import Head from "next/head";
 
-export default function Layout() {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <>
       <Head>
-        <title>내일 뭐해?</title>
+        <title>내일 할일</title>
       </Head>
-      <nav className="bg-green-300 h-10 pt-2">
-        <ul className="flex justify-around items-center">
-          <li> 오늘 뭐했어? </li>
-          <li> 내일 뭐해? </li>
-        </ul>
-      </nav>
-    </div>
+      <div className="w-screen h-screen bg-blue-200">
+        <nav className="flex justify-center items-center p-8">
+          <div>
+            <span className="text-4xl font-semibold">내일 할일</span>
+          </div>
+        </nav>
+        <div>{children}</div>
+      </div>
+    </>
   );
 }
